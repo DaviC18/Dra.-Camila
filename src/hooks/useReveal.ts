@@ -18,7 +18,7 @@ export function useReveal(scope: RefObject<HTMLElement | null>) {
         root.querySelectorAll<HTMLElement>("[data-reveal]").forEach((el) => {
           gsap.from(el, {
             y: 24,
-            autoAlpha: 0,
+            opacity: 0,
             duration: 0.8,
             scrollTrigger: { trigger: el, start: "top 88%", once: true },
           });
@@ -29,7 +29,7 @@ export function useReveal(scope: RefObject<HTMLElement | null>) {
           if (!items.length) return;
           gsap.from(items, {
             y: 24,
-            autoAlpha: 0,
+            opacity: 0,
             duration: 0.6,
             stagger: 0.08,
             scrollTrigger: { trigger: group, start: "top 85%", once: true },

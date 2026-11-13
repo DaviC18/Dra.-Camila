@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- [PENDENTE: domínio] — trocar quando o domínio for definido -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://dominio-pendente.example/</loc>
+  </url>
+</urlset>

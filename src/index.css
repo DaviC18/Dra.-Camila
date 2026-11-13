@@ -250,6 +250,15 @@ main > section.hero {
   main > section.hero { height: auto; min-height: 100svh; }
 }
 
+/* Entrada do hero (Fase 4): só desktop com movimento. A classe .js vem de um script no <head>;
+   o GSAP mostra os elementos. Sem JS ou com reduced-motion, nada fica escondido. */
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  .js [data-hero-title],
+  .js [data-hero-after] {
+    visibility: hidden;
+  }
+}
+
 @layer utilities {
   .tabular {
     font-variant-numeric: tabular-nums;

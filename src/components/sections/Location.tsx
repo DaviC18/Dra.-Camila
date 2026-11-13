@@ -10,8 +10,8 @@ function Detail({ icon: Icon, title, children }: { icon: LucideIcon; title: stri
     <div className="flex gap-4">
       <Icon className="mt-0.5 size-5 shrink-0 text-brand" aria-hidden="true" />
       <div>
-        <dt className="font-semibold text-ink">{title}</dt>
-        <dd className="mt-1 text-ink-muted">{children}</dd>
+        <p className="font-semibold text-ink">{title}</p>
+        <div className="mt-1 text-ink-muted">{children}</div>
       </div>
     </div>
   );
@@ -27,7 +27,7 @@ export function Location() {
               {location.title}
             </h2>
 
-            <dl className="mt-10 flex flex-col gap-6">
+            <div className="mt-10 flex flex-col gap-6">
               <Detail icon={MapPin} title={location.addressTitle}>
                 <address className="not-italic">{contact.addressLine}</address>
               </Detail>
@@ -48,7 +48,7 @@ export function Location() {
               <Detail icon={FileQuestion} title={location.insurance.title}>
                 <p>{location.insurance.text}</p>
               </Detail>
-            </dl>
+            </div>
 
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <a

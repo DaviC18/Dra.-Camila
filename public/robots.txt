@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# [PENDENTE: domínio] — trocar quando o domínio for definido
+Sitemap: https://dominio-pendente.example/sitemap.xml

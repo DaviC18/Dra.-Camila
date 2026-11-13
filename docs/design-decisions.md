@@ -78,3 +78,12 @@ Seleção de texto, cursor de digitação, anel de foco (2px `brand`) e barra de
   - O título só esmaece.
   - O resto fica parado e visível, e a faixa fica estática.
   - O contador já mostra o número final.
+
+## SEO e performance (Fase 5)
+- **Pré-render no build.** `src/entry-server.tsx` mais `scripts/prerender.mjs` gravam o HTML pronto em `dist/index.html`, e o cliente hidrata (`main.tsx`). Sem isso, nenhum texto aparecia antes de o JS carregar, e o LCP ficava preso nele.
+- **Entrada do hero só no desktop.** No celular o hero é estático: o texto já vem no HTML. No desktop, a classe `.js` (definida por um script no `<head>`) mais o CSS escondem título e CTAs até o GSAP mostrar, sem piscar.
+- **Reveal com `opacity`, não `autoAlpha`.** O `visibility: hidden` tirava os títulos ainda não revelados da árvore de acessibilidade.
+- **Fontes:** preload só do subset latino das duas famílias.
+  - A Source Serif com `opsz` tem 122KB.
+  - Testei a variante `wght` (51KB): o LCP só caiu de 3,2s para 2,9s e o título perdeu o corte de display. Mantive a `opsz`.
+- **URL do site:** `VITE_SITE_URL` (`.env`) alimenta o canonical, o Open Graph e o JSON-LD. `robots.txt` e `sitemap.xml` usam o domínio provisório [PENDENTE].

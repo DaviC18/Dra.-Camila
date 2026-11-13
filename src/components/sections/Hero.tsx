@@ -16,13 +16,14 @@ export function Hero() {
     (_, contextSafe) => {
       const mm = gsap.matchMedia();
 
-      mm.add(MEDIA.motion, () => {
+      // Só no desktop: no celular o hero fica estático (texto visível desde o HTML pré-renderizado,
+      // bom para o LCP). O CSS em index.css esconde título e CTAs até aqui, sem piscar.
+      mm.add(MEDIA.desktop, () => {
         const title = root.current?.querySelector<HTMLElement>("[data-hero-title]");
         if (!title || !contextSafe) return;
         let split: SplitText | undefined;
 
         // Divide só depois das fontes: senão o autoSplit refaz o split e a entrada recomeça.
-        gsap.set(title, { autoAlpha: 0 });
         const splitTitle = contextSafe(() => {
           gsap.set(title, { autoAlpha: 1 });
           split = SplitText.create(title, {
@@ -37,7 +38,11 @@ export function Hero() {
         document.fonts.ready.then(() => splitTitle());
 
         // Subtítulo, CTAs e selo: entrada curta e cedo (o WhatsApp não pode esperar), sem bloquear clique
-        gsap.from("[data-hero-after]", { y: 12, autoAlpha: 0, duration: 0.5, stagger: 0.06, delay: 0.15 });
+        gsap.fromTo(
+          "[data-hero-after]",
+          { y: 12, autoAlpha: 0 },
+          { y: 0, autoAlpha: 1, duration: 0.5, stagger: 0.06, delay: 0.15 },
+        );
 
         // Contador do selo: 0 → 4,9 e 0 → 75
         const rating = root.current?.querySelector<HTMLElement>("[data-count-rating]");
@@ -56,10 +61,6 @@ export function Hero() {
         });
 
         return () => split?.revert();
-      });
-
-      mm.add(MEDIA.reduced, () => {
-        gsap.from("[data-hero-title]", { autoAlpha: 0, duration: 0.5, ease: "none" });
       });
     },
     { scope: root },

@@ -99,7 +99,7 @@ export function Footer() {
             </ul>
           </nav>
 
-          <p className="text-label md:col-span-4">
+          <p className="text-label md:col-span-4" suppressHydrationWarning>
             © {year} {identity.name}. {footer.rights} · {footer.credit}
           </p>
         </div>

@@ -1,0 +1,13 @@
+import { StrictMode } from "react";
+import { renderToString } from "react-dom/server";
+
+import App from "./App.tsx";
+
+/** Usado só no build (scripts/prerender.mjs) para gerar o HTML estático da página. */
+export function render() {
+  return renderToString(
+    <StrictMode>
+      <App />
+    </StrictMode>,
+  );
+}
