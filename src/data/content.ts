@@ -164,6 +164,7 @@ export const reputation = {
   reviewCount: 75,
   source: "Google",
   label: "avaliações no Google",
+  ariaLabel: "Nota 4,9 de 5 com 75 avaliações no Google (abre em nova aba)",
 } as const;
 
 // ---------------------------------------------------------------------------
@@ -171,8 +172,8 @@ export const reputation = {
 // ---------------------------------------------------------------------------
 
 export const nav: NavLink[] = [
-  { label: "Serviços", href: "#servicos" },
   { label: "Sobre", href: "#sobre" },
+  { label: "Serviços", href: "#servicos" },
   { label: "Depoimentos", href: "#depoimentos" },
   { label: "Localização", href: "#localizacao" },
 ];
@@ -190,6 +191,8 @@ export const ui = {
   fabAria: "Conversar com a Dra. Camila no WhatsApp (abre em nova aba)",
   externalLink: "(abre em nova aba)",
   homeAria: "Dra. Camila Mattje — início",
+  navAria: "Navegação principal",
+  footerNavAria: "Links do rodapé",
 } as const;
 
 // ---------------------------------------------------------------------------
@@ -234,7 +237,8 @@ export const services = {
       services: [
         {
           name: "Urgência / Emergência 24 horas",
-          description: "Atendimento para dor e imprevistos a qualquer hora, inclusive noites, fins de semana e feriados.",
+          description:
+            "Atendimento para dor e imprevistos a qualquer hora, inclusive noites, fins de semana e feriados.",
           icon: "siren",
         },
         {
@@ -250,7 +254,8 @@ export const services = {
       services: [
         {
           name: "Canal (Endodontia)",
-          description: "Tratamento da polpa do dente para tirar a dor causada por inflamação ou infecção.",
+          description:
+            "Tratamento da polpa do dente para tirar a dor causada por inflamação ou infecção.",
           icon: "tooth",
         },
         {
@@ -265,12 +270,14 @@ export const services = {
         },
         {
           name: "Placa de bruxismo",
-          description: "Placa feita sob medida para proteger os dentes de quem range ou aperta durante o sono.",
+          description:
+            "Placa feita sob medida para proteger os dentes de quem range ou aperta durante o sono.",
           icon: "moon",
         },
         {
           name: "Cirurgia",
-          description: "Extrações e pequenas cirurgias orais, com avaliação e orientação antes e depois.",
+          description:
+            "Extrações e pequenas cirurgias orais, com avaliação e orientação antes e depois.",
           icon: "stethoscope",
         },
       ],
@@ -297,7 +304,8 @@ export const services = {
       services: [
         {
           name: "Prótese",
-          description: "Próteses removíveis, bloco e coroa para repor dentes perdidos ou desgastados.",
+          description:
+            "Próteses removíveis, bloco e coroa para repor dentes perdidos ou desgastados.",
           icon: "crown",
         },
         {
@@ -324,25 +332,20 @@ export const beforeAfter = {
   sliderLabel: "Comparar antes e depois do clareamento",
   beforeAlt: "Dentes antes do clareamento",
   afterAlt: "Dentes depois do clareamento",
+  /** [PENDENTE: imagens originais] — null mostra placeholder */
+  beforeSrc: null as string | null,
+  afterSrc: null as string | null,
 } as const;
 
 export const testimonials = {
   title: "O que dizem os pacientes",
   anonymousName: "Paciente no Google",
   starsAria: "5 de 5 estrelas",
+  /** Quantos depoimentos aparecem (spec: 4–6), na ordem da lista */
+  featuredCount: 6,
   allReviews: "Ver todas as avaliações no Google",
   /** [PENDENTE: autorização — usar só primeiro nome] */
   items: [
-    {
-      name: "Thiago",
-      text: "Me atendeu de urgência em um período em que a grande maioria está de recesso. Muito bem atendido e sorriso novo no rosto.",
-      rating: 5,
-    },
-    {
-      name: "Miguel",
-      text: "Dra me atendeu de emergência de noite e resolveu o problema. Boa profissional, rápida e eficaz. Ótimo atendimento.",
-      rating: 5,
-    },
     {
       name: "Ana Cristina",
       text: "Foi maravilhosa comigo... me atendeu no sábado à noite e tirou minha dor.",
@@ -359,6 +362,11 @@ export const testimonials = {
       rating: 5,
     },
     {
+      name: "Thiago",
+      text: "Me atendeu de urgência em um período em que a grande maioria está de recesso. Muito bem atendido e sorriso novo no rosto.",
+      rating: 5,
+    },
+    {
       name: "Maria Clara",
       text: "Procurei ela após semanas de crise de bruxismo e em uma consulta foi super atenciosa e já me indicou os tratamentos necessários.",
       rating: 5,
@@ -366,6 +374,11 @@ export const testimonials = {
     {
       name: "Radamés",
       text: "A Dra. Camila é extremamente atenciosa, humana e cuidadosa em cada detalhe do atendimento. Sempre preocupada com o bem-estar do paciente, transmite muita confiança e tranquilidade durante os procedimentos. O consultório é confortável, acolhedor e bem estruturado.",
+      rating: 5,
+    },
+    {
+      name: "Miguel",
+      text: "Dra me atendeu de emergência de noite e resolveu o problema. Boa profissional, rápida e eficaz. Ótimo atendimento.",
       rating: 5,
     },
     {
@@ -443,6 +456,7 @@ export const location = {
   directions: "Como chegar",
   call: "Ligar",
   callAria: "Ligar para (24) 99276-0097",
+  phoneTitle: "Telefone e WhatsApp",
   mapTitle: "Mapa com a localização do consultório da Dra. Camila Mattje",
   amenities: [
     {
@@ -473,6 +487,8 @@ export const footer = {
   /** [PENDENTE: crédito de desenvolvimento] */
   credit: "Desenvolvido por Davi Curty",
   instagramAria: "Instagram da Dra. Camila Mattje (abre em nova aba)",
+  contactTitle: "Contato",
+  addressTitle: "Endereço",
 } as const;
 
 // ---------------------------------------------------------------------------
