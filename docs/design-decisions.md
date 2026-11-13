@@ -51,10 +51,12 @@ Seleção de texto, cursor de digitação, anel de foco (2px `brand`) e barra de
 ## Ícones
 - Os ícones de interface vêm do lucide.
 - Quatro ícones são desenhados à mão, no mesmo traço do lucide (grid 24, traço 2, sem preenchimento): `WhatsAppIcon`, `InstagramIcon`, `ToothIcon` e `BracesIcon`.
-- `Monogram` é provisório, até a cliente enviar o logo [PENDENTE].
 
-## Fotos
-Até chegarem as fotos reais, o site usa um placeholder claro: uma moldura com o monograma, já na proporção final. Nada que pareça foto da doutora.
+## Fotos e logo
+- Os originais da cliente estão em `assets-originais/` e não são publicados. O site usa as versões WebP em `public/images/`.
+- **Hero:** foto da recepção, só no desktop. A parede azul com o logo CM combina com o `brand`. No celular, o título, o CTA e o selo precisam caber na primeira tela.
+- **Sobre:** foto da doutora.
+- **Logo:** `logo.png` da cliente (CM azul, fundo transparente), em `logo-128.webp`.
 
 ## Regras para as próximas fases
 - Sem "eyebrow" (rótulo pequeno acima do título). Os campos `eyebrow` foram removidos de `content.ts`.

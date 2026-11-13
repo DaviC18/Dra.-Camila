@@ -61,34 +61,3 @@ export function BracesIcon(props: IconProps) {
     </Icon>
   );
 }
-
-/** Monograma provisório até a cliente enviar o logo em SVG [PENDENTE]. */
-export function Monogram({ size = 40, ...props }: IconProps) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width={size}
-      height={size}
-      viewBox="0 0 48 48"
-      fill="none"
-      aria-hidden="true"
-      focusable="false"
-      {...props}
-    >
-      <circle cx="24" cy="24" r="23" stroke="currentColor" strokeWidth="1.25" />
-      <text
-        x="24"
-        y="24"
-        dy="0.35em"
-        textAnchor="middle"
-        fill="currentColor"
-        fontFamily="var(--font-display)"
-        fontSize="19"
-        fontWeight="400"
-        letterSpacing="-0.5"
-      >
-        CM
-      </text>
-    </svg>
-  );
-}

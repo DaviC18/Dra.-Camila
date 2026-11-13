@@ -1,9 +1,9 @@
 import { Star } from "lucide-react";
 
-import { PhotoPlaceholder } from "@/components/shared/PhotoPlaceholder";
+import { Photo } from "@/components/shared/Photo";
 import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
 import { UrgencyBand } from "@/components/sections/UrgencyBand";
-import { contact, hero, reputation } from "@/data/content";
+import { contact, hero, images, reputation } from "@/data/content";
 
 export function Hero() {
   return (
@@ -44,7 +44,13 @@ export function Hero() {
             </a>
           </div>
 
-          <PhotoPlaceholder className="hidden h-full max-h-full w-full lg:col-span-5 lg:grid" />
+          <Photo
+            image={images.reception}
+            sizes="(min-width: 1024px) 40vw, 0px"
+            priority
+            className="hidden h-full w-full lg:col-span-5 lg:block"
+            imgClassName="object-[50%_35%]"
+          />
         </div>
       </div>
 

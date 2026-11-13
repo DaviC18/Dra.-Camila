@@ -92,6 +92,40 @@ export interface Amenity {
 }
 
 // ---------------------------------------------------------------------------
+// Imagens (originais em assets-originais/, versões WebP em public/images/)
+// ---------------------------------------------------------------------------
+
+export interface SiteImage {
+  src: string;
+  srcSet: string;
+  width: number;
+  height: number;
+  alt: string;
+}
+
+export const images = {
+  doctor: {
+    src: "/images/dra-camila-1080.webp",
+    srcSet: "/images/dra-camila-640.webp 640w, /images/dra-camila-1080.webp 1080w",
+    width: 1080,
+    height: 1080,
+    alt: "Dra. Camila Mattje, cirurgiã-dentista, sorrindo, de blazer preto",
+  },
+  reception: {
+    src: "/images/recepcao-1400.webp",
+    srcSet: "/images/recepcao-800.webp 800w, /images/recepcao-1400.webp 1400w",
+    width: 1400,
+    height: 1875,
+    alt: "Recepção do consultório, com parede azul e o logo CM da Dra. Camila Mattje",
+  },
+  logo: {
+    src: "/images/logo-128.webp",
+    width: 128,
+    height: 128,
+  },
+} as const satisfies Record<string, SiteImage | { src: string; width: number; height: number }>;
+
+// ---------------------------------------------------------------------------
 // Flags
 // ---------------------------------------------------------------------------
 
