@@ -1,24 +1,29 @@
+import { useRef } from "react";
+
 import { InstagramIcon } from "@/components/icons";
 import { Logo } from "@/components/shared/Logo";
 import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
 import { contact, finalCta, footer, howItWorks, identity, nav, ui } from "@/data/content";
+import { useReveal } from "@/hooks/useReveal";
 import { telLink } from "@/lib/whatsapp";
 
 /** O fechamento e o rodapé numa seção só (footer.closing): linha 1 o CTA final, linha 2 os links. */
 export function Footer() {
   const year = new Date().getFullYear();
+  const root = useRef<HTMLElement>(null);
+  useReveal(root);
 
   return (
-    <footer id="contato" aria-labelledby="contato-titulo" className="closing bg-brand-soft max-sm:[--hm:2]">
+    <footer ref={root} id="contato" aria-labelledby="contato-titulo" className="closing bg-brand-soft max-sm:[--hm:2]">
       <div className="wrap justify-between gap-16">
         <div>
-          <h2 id="contato-titulo" className="max-w-3xl text-h2">
+          <h2 id="contato-titulo" data-reveal className="max-w-3xl text-h2">
             {finalCta.title}
           </h2>
 
-          <ol aria-label={howItWorks.title} className="mt-10 grid gap-8 md:grid-cols-3">
+          <ol aria-label={howItWorks.title} data-reveal-stagger className="mt-10 grid gap-8 md:grid-cols-3">
             {howItWorks.steps.map((step, i) => (
-              <li key={step.title} className="flex gap-4">
+              <li key={step.title} data-reveal-item className="flex gap-4">
                 <span
                   aria-hidden="true"
                   className="grid size-10 shrink-0 place-items-center rounded-full bg-brand font-display text-lead text-on-ink"

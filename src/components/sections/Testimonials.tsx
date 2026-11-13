@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 function Quote({ item, className }: { item: Testimonial; className?: string }) {
   return (
-    <li className={className}>
+    <li data-reveal-item className={className}>
       <figure className="rounded-lg bg-surface p-7">
         <Stars label={testimonials.starsAria} />
         <blockquote className="mt-5 font-display text-lead text-ink">
@@ -32,17 +32,17 @@ export function Testimonials() {
     <section id="depoimentos" aria-labelledby="depoimentos-titulo" className="g2 bg-accent">
       <div className="wrap">
         <div>
-          <h2 id="depoimentos-titulo" className="max-w-2xl text-h2">
+          <h2 id="depoimentos-titulo" data-reveal className="max-w-2xl text-h2">
             {testimonials.title}
           </h2>
-          <ul className="mt-12 grid items-start gap-6 md:grid-cols-3">
+          <ul data-reveal-stagger className="mt-12 grid items-start gap-6 md:grid-cols-3">
             {first.map((item, i) => (
               <Quote key={item.name} item={item} className={mobileHidden(i)} />
             ))}
           </ul>
         </div>
         <div>
-          <ul className="grid items-start gap-6 md:grid-cols-3">
+          <ul data-reveal-stagger className="grid items-start gap-6 md:grid-cols-3">
             {second.map((item, i) => (
               <Quote key={item.name} item={item} className={mobileHidden(i + first.length)} />
             ))}

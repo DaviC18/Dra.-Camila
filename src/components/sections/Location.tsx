@@ -22,7 +22,7 @@ export function Location() {
     <section id="localizacao" aria-labelledby="localizacao-titulo" className="max-sm:[--hm:2]">
       <div className="wrap">
         <div className="grid h-full items-start gap-10 lg:grid-cols-12 lg:gap-x-6">
-          <div className="lg:col-span-7">
+          <div data-reveal className="lg:col-span-7">
             <h2 id="localizacao-titulo" className="text-h2">
               {location.title}
             </h2>
@@ -72,7 +72,7 @@ export function Location() {
             </div>
           </div>
 
-          <div className="h-full min-h-72 overflow-hidden rounded-xl bg-brand-soft ring-1 ring-line lg:col-span-5">
+          <div data-reveal className="h-full min-h-72 overflow-hidden rounded-xl bg-brand-soft ring-1 ring-line lg:col-span-5">
             <iframe
               src={contact.mapsEmbedUrl}
               title={location.mapTitle}

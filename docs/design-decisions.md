@@ -61,3 +61,20 @@ Seleção de texto, cursor de digitação, anel de foco (2px `brand`) e barra de
 ## Regras para as próximas fases
 - Sem "eyebrow" (rótulo pequeno acima do título). Os campos `eyebrow` foram removidos de `content.ts`.
 - Sem números de seção, texto em gradiente ou glassmorphism decorativo.
+
+## Movimento (Fase 4)
+- **Configuração:** fica em `src/lib/gsap.ts`. O padrão é `power3.out` com 0,7s. Os contextos do `matchMedia` estão em `MEDIA` (desktop, mobile, motion, reduced).
+- **Hero:**
+  - O título entra por linha (SplitText com máscara), mas só depois de `document.fonts.ready`. Sem essa espera, a troca de fonte refaz o split e a entrada recomeça.
+  - Subtítulo, CTAs e selo entram aos 0,15s, em 0,5s. É curto de propósito, para não atrasar o WhatsApp.
+  - O contador do selo vai de 0 a 4,9 e de 0 a 75.
+- **Seções:** usam `useReveal` (`src/hooks/useReveal.ts`).
+  - Cada `[data-reveal]` sobe 24px e aparece, uma vez só.
+  - `[data-reveal-stagger]` anima os filhos `[data-reveal-item]` em sequência: serviços por grupo, depoimentos e os passos.
+  - As linhas de botões não ganham reveal.
+- **Faixa:** marquee contínuo (`xPercent -50` sobre duas cópias), que pausa em hover e foco.
+- **Header e FAB:** a transição é em CSS, com `motion-reduce:transition-none`.
+- **Reduced-motion:**
+  - O título só esmaece.
+  - O resto fica parado e visível, e a faixa fica estática.
+  - O contador já mostra o número final.

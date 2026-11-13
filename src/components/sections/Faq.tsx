@@ -6,11 +6,11 @@ export function Faq() {
     <section id="duvidas" aria-labelledby="duvidas-titulo" className="bg-surface">
       <div className="wrap">
         <div className="grid items-start gap-8 lg:grid-cols-12 lg:gap-x-6">
-          <h2 id="duvidas-titulo" className="text-h2 lg:col-span-5">
+          <h2 id="duvidas-titulo" data-reveal className="text-h2 lg:col-span-5">
             {faq.title}
           </h2>
 
-          <Accordion className="lg:col-span-7">
+          <Accordion data-reveal className="lg:col-span-7">
             {faq.items.map((item) => (
               <AccordionItem key={item.question} value={item.question}>
                 <AccordionTrigger>{item.question}</AccordionTrigger>

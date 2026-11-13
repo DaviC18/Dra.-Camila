@@ -35,13 +35,13 @@ const icons: Record<ServiceIcon, LucideIcon | ComponentType<SVGProps<SVGSVGEleme
 
 function Group({ group }: { group: (typeof services.groups)[number] }) {
   return (
-    <div data-service-group={group.id}>
+    <div data-service-group={group.id} data-reveal-stagger>
       <h3 className={cn("text-h3", group.id === "urgencia" ? "text-urgent" : "text-brand-strong")}>{group.title}</h3>
       <ul className="mt-4 grid gap-x-6 gap-y-5 sm:mt-6 sm:grid-cols-2 sm:gap-y-7">
         {group.services.map((service) => {
           const Icon = icons[service.icon];
           return (
-            <li key={service.name} data-service className="flex gap-4">
+            <li key={service.name} data-service data-reveal-item className="flex gap-4">
               <span className="grid size-11 shrink-0 place-items-center rounded-md bg-brand-soft text-brand">
                 <Icon className="size-5" aria-hidden="true" />
               </span>
@@ -65,7 +65,7 @@ export function Services() {
     <section id="servicos" aria-labelledby="servicos-titulo" className="g2 bg-surface">
       <div className="wrap">
         <div className="space-y-8 sm:space-y-12">
-          <h2 id="servicos-titulo" className="text-h2">
+          <h2 id="servicos-titulo" data-reveal className="text-h2">
             {services.title}
           </h2>
           <Group group={urgencia} />

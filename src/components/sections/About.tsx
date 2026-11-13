@@ -8,7 +8,7 @@ export function About() {
     <section id="sobre" aria-labelledby="sobre-titulo" className="max-sm:[--hm:2]">
       <div className="wrap">
         <div className="grid h-full content-start items-start gap-12 lg:grid-cols-12 lg:content-stretch lg:gap-x-6">
-          <div className="lg:col-span-7">
+          <div data-reveal className="lg:col-span-7">
             <h2 id="sobre-titulo" className="max-w-xl text-h2">
               {about.title}
             </h2>
@@ -37,6 +37,7 @@ export function About() {
 
           <Photo
             image={images.doctor}
+            reveal
             sizes="(min-width: 1024px) 40vw, 100vw"
             className="aspect-4/5 w-full lg:col-span-5 lg:aspect-auto lg:h-full"
             imgClassName="object-[50%_20%]"

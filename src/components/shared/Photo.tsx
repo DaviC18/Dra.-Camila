@@ -7,12 +7,13 @@ type Props = {
   priority?: boolean;
   className?: string;
   imgClassName?: string;
+  reveal?: boolean;
 };
 
 /** Foto em moldura arredondada; a imagem cobre a moldura. */
-export function Photo({ image, sizes, priority = false, className, imgClassName }: Props) {
+export function Photo({ image, sizes, priority = false, className, imgClassName, reveal = false }: Props) {
   return (
-    <div className={cn("overflow-hidden rounded-xl bg-brand-soft", className)}>
+    <div data-reveal={reveal || undefined} className={cn("overflow-hidden rounded-xl bg-brand-soft", className)}>
       <img
         src={image.src}
         srcSet={image.srcSet}

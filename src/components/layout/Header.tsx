@@ -24,7 +24,7 @@ export function Header() {
     <header
       data-scrolled={scrolled}
       className={cn(
-        "nav fixed inset-x-0 top-0 z-40 h-(--nav) border-b transition-[background-color,border-color,backdrop-filter] duration-300",
+        "nav fixed inset-x-0 top-0 z-40 h-(--nav) border-b transition-[background-color,border-color,backdrop-filter] duration-300 motion-reduce:transition-none",
         scrolled
           ? "border-line bg-paper/90 backdrop-blur-md supports-[not(backdrop-filter:blur(0))]:bg-paper"
           : "border-transparent bg-transparent",

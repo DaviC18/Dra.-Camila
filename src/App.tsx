@@ -8,13 +8,19 @@ import { Hero } from "@/components/sections/Hero";
 import { Location } from "@/components/sections/Location";
 import { Services } from "@/components/sections/Services";
 import { Testimonials } from "@/components/sections/Testimonials";
+import { useRef } from "react";
+
 import { features } from "@/data/content";
+import { useReveal } from "@/hooks/useReveal";
 
 export default function App() {
+  const main = useRef<HTMLElement>(null);
+  useReveal(main);
+
   return (
     <>
       <Header />
-      <main id="conteudo" tabIndex={-1} className="outline-none">
+      <main ref={main} id="conteudo" tabIndex={-1} className="outline-none">
         <Hero />
         <About />
         <Services />

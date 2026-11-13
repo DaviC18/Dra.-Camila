@@ -42,7 +42,7 @@ export function WhatsAppFab() {
         aria-hidden={!visible}
         data-visible={visible}
         className={cn(
-          "fixed right-6 bottom-6 z-30 hidden size-14 place-items-center rounded-full bg-whatsapp text-white shadow-lg transition-[opacity,translate,background-color] duration-300 ease-out-expo hover:bg-whatsapp-strong sm:grid",
+          "fixed right-6 bottom-6 z-30 hidden size-14 place-items-center rounded-full bg-whatsapp text-white shadow-lg transition-[opacity,translate,background-color] duration-300 ease-out-expo motion-reduce:transition-none hover:bg-whatsapp-strong sm:grid",
           visible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0",
         )}
       >
