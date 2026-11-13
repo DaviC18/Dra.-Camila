@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# estado local da taste-skill (histórico, perfil do Chrome)
+.taste-skill/

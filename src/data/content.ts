@@ -146,9 +146,10 @@ export const contact: ContactInfo = {
   plusCode: "FR5J+PM Ano Bom, Barra Mansa - RJ",
 };
 
-/** [PENDENTE: 24h é só urgência? horário das consultas eletivas?] */
+/** 24h vale só para urgência (confirmado). [PENDENTE: horário das consultas eletivas] */
 export const hours = {
-  summary: "Aberto 24 horas",
+  urgency: "Urgência: 24 horas, todos os dias",
+  elective: "Consultas: com hora marcada",
   note: "Recomendado marcar hora",
   pending: true,
 } as const;
@@ -211,7 +212,6 @@ export const urgencyBand = {
 } as const;
 
 export const about = {
-  eyebrow: "Sobre",
   title: "Cuidado sem pressa, explicado do começo ao fim",
   paragraphs: [
     "Sou a Dra. Camila Mattje, cirurgiã-dentista em Barra Mansa. Atendo clínica geral e urgência odontológica, inclusive à noite e nos fins de semana.",
@@ -225,7 +225,6 @@ export const about = {
 } as const;
 
 export const services = {
-  eyebrow: "Serviços",
   title: "Do alívio da dor ao cuidado do sorriso",
   cta: "Agendar avaliação",
   groups: [
@@ -235,7 +234,7 @@ export const services = {
       services: [
         {
           name: "Urgência / Emergência 24 horas",
-          description: "Atendimento para dor e imprevistos a qualquer hora, inclusive noites e fins de semana.",
+          description: "Atendimento para dor e imprevistos a qualquer hora, inclusive noites, fins de semana e feriados.",
           icon: "siren",
         },
         {
@@ -318,7 +317,6 @@ export const services = {
 
 /** [PENDENTE: imagem original + autorização da paciente] — controlado por features.beforeAfter */
 export const beforeAfter = {
-  eyebrow: "Antes e depois",
   title: "Resultado de clareamento",
   caption: "Clareamento dental",
   beforeLabel: "Antes",
@@ -329,7 +327,6 @@ export const beforeAfter = {
 } as const;
 
 export const testimonials = {
-  eyebrow: "Depoimentos",
   title: "O que dizem os pacientes",
   anonymousName: "Paciente no Google",
   starsAria: "5 de 5 estrelas",
@@ -385,7 +382,6 @@ export const testimonials = {
 } as const;
 
 export const howItWorks = {
-  eyebrow: "Como funciona",
   title: "Três passos até o atendimento",
   steps: [
     {
@@ -394,7 +390,7 @@ export const howItWorks = {
     },
     {
       title: "Avaliação",
-      description: "A Dra. Camila examina, explica o que encontrou e as opções de tratamento.",
+      description: "Examino, explico o que encontrei e quais são as opções de tratamento.",
     },
     {
       title: "Tratamento no seu tempo",
@@ -404,7 +400,6 @@ export const howItWorks = {
 } as const;
 
 export const faq = {
-  eyebrow: "Dúvidas",
   title: "Perguntas frequentes",
   items: [
     {
@@ -442,7 +437,6 @@ export const faq = {
 } as const;
 
 export const location = {
-  eyebrow: "Localização",
   title: "Consultório no Ano Bom, Barra Mansa",
   addressTitle: "Endereço",
   hoursTitle: "Horário",
