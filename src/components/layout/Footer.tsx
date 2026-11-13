@@ -1,66 +1,103 @@
 import { InstagramIcon } from "@/components/icons";
 import { Logo } from "@/components/shared/Logo";
-import { contact, footer, identity, nav, ui } from "@/data/content";
+import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
+import { contact, finalCta, footer, howItWorks, identity, nav, ui } from "@/data/content";
 import { telLink } from "@/lib/whatsapp";
 
+/** O fechamento e o rodapé numa seção só (footer.closing): linha 1 o CTA final, linha 2 os links. */
 export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-ink text-on-ink-muted">
-      <div className="container-site grid gap-12 border-t border-on-ink/12 py-16 md:grid-cols-[1.4fr_1fr_1fr]">
-        <div className="space-y-4">
-          <Logo inverse />
-          <p className="text-small">
-            {identity.profession} · {identity.cro}
-          </p>
-        </div>
+    <footer id="contato" aria-labelledby="contato-titulo" className="closing bg-brand-soft max-sm:[--hm:2]">
+      <div className="wrap justify-between gap-16">
+        <div>
+          <h2 id="contato-titulo" className="max-w-3xl text-h2">
+            {finalCta.title}
+          </h2>
 
-        <div className="space-y-3 text-small">
-          <h2 className="font-sans text-label font-semibold text-on-ink">{footer.addressTitle}</h2>
-          <address className="not-italic">{contact.addressLine}</address>
-        </div>
-
-        <div className="space-y-3 text-small">
-          <h2 className="font-sans text-label font-semibold text-on-ink">{footer.contactTitle}</h2>
-          <ul className="space-y-1">
-            <li>
-              <a href={telLink()} className="inline-flex min-h-11 items-center hover:text-on-ink hover:underline">
-                {contact.phoneDisplay}
-              </a>
-            </li>
-            <li>
-              <a
-                href={contact.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={footer.instagramAria}
-                className="inline-flex min-h-11 items-center gap-2 hover:text-on-ink hover:underline"
-              >
-                <InstagramIcon className="size-5" />
-                {contact.instagramHandle}
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div className="container-site flex flex-col gap-4 border-t border-on-ink/12 py-6 text-label sm:flex-row sm:items-center sm:justify-between">
-        <p>
-          © {year} {identity.name}. {footer.rights}
-        </p>
-        <nav aria-label={ui.footerNavAria}>
-          <ul className="flex flex-wrap gap-x-5">
-            {nav.map((item) => (
-              <li key={item.href}>
-                <a href={item.href} className="inline-flex min-h-11 items-center hover:text-on-ink hover:underline">
-                  {item.label}
-                </a>
+          <ol aria-label={howItWorks.title} className="mt-10 grid gap-8 md:grid-cols-3">
+            {howItWorks.steps.map((step, i) => (
+              <li key={step.title} className="flex gap-4">
+                <span
+                  aria-hidden="true"
+                  className="grid size-10 shrink-0 place-items-center rounded-full bg-brand font-display text-lead text-on-ink"
+                >
+                  {i + 1}
+                </span>
+                <div>
+                  <p className="font-semibold text-ink">{step.title}</p>
+                  <p className="mt-1 text-small text-ink-muted">{step.description}</p>
+                </div>
               </li>
             ))}
-          </ul>
-        </nav>
-        <p>{footer.credit}</p>
+          </ol>
+
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <WhatsAppButton kind="urgencia" label={finalCta.ctaPrimary} size="lg" className="max-sm:w-full" />
+            <WhatsAppButton
+              kind="avaliacao"
+              label={finalCta.ctaSecondary}
+              variant="outline"
+              size="lg"
+              showIcon={false}
+              className="max-sm:w-full"
+            />
+          </div>
+        </div>
+
+        <div className="grid gap-8 text-small text-ink-muted md:grid-cols-[1.4fr_1fr_1fr_auto] md:items-start">
+          <div className="space-y-3">
+            <Logo />
+            <p>
+              {identity.profession} · {identity.cro}
+            </p>
+          </div>
+
+          <div className="space-y-1">
+            <p className="font-semibold text-ink">{footer.addressTitle}</p>
+            <address className="not-italic">{contact.addressLine}</address>
+          </div>
+
+          <div>
+            <p className="font-semibold text-ink">{footer.contactTitle}</p>
+            <ul>
+              <li>
+                <a href={telLink()} className="inline-flex min-h-11 items-center hover:text-ink hover:underline">
+                  {contact.phoneDisplay}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={contact.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={footer.instagramAria}
+                  className="inline-flex min-h-11 items-center gap-2 hover:text-ink hover:underline"
+                >
+                  <InstagramIcon className="size-5" />
+                  {contact.instagramHandle}
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <nav aria-label={ui.footerNavAria}>
+            <ul>
+              {nav.map((item) => (
+                <li key={item.href}>
+                  <a href={item.href} className="inline-flex min-h-11 items-center hover:text-ink hover:underline">
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <p className="text-label md:col-span-4">
+            © {year} {identity.name}. {footer.rights} · {footer.credit}
+          </p>
+        </div>
       </div>
     </footer>
   );

@@ -58,18 +58,18 @@ export function BeforeAfter() {
   };
 
   return (
-    <section id="antes-depois" aria-labelledby="antes-depois-titulo" className="py-section">
-      <div className="container-site">
+    <section id="antes-depois" aria-labelledby="antes-depois-titulo">
+      <div className="wrap">
         <h2 id="antes-depois-titulo" className="text-h2">
           {beforeAfter.title}
         </h2>
 
-        <figure className="mt-12">
+        <figure className="fill mt-10 flex flex-col">
           <div
             ref={frameRef}
             onPointerDown={onPointerDown}
             onPointerMove={onPointerMove}
-            className="relative aspect-16/10 cursor-ew-resize touch-pan-y overflow-hidden rounded-xl bg-brand-soft select-none"
+            className="relative min-h-0 flex-1 cursor-ew-resize touch-pan-y overflow-hidden rounded-xl bg-brand-soft select-none"
           >
             <Picture src={beforeAfter.afterSrc} alt={beforeAfter.afterAlt} tone="after" />
             <div className="absolute inset-0" style={{ clipPath: `inset(0 ${100 - value}% 0 0)` }}>

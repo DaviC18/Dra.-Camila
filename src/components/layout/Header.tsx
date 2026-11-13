@@ -24,13 +24,19 @@ export function Header() {
     <header
       data-scrolled={scrolled}
       className={cn(
-        "fixed inset-x-0 top-0 z-40 h-(--spacing-header) border-b transition-[background-color,border-color,backdrop-filter] duration-300",
+        "nav fixed inset-x-0 top-0 z-40 h-(--nav) border-b transition-[background-color,border-color,backdrop-filter] duration-300",
         scrolled
           ? "border-line bg-paper/90 backdrop-blur-md supports-[not(backdrop-filter:blur(0))]:bg-paper"
           : "border-transparent bg-transparent",
       )}
     >
-      <div className="container-site flex h-full items-center justify-between gap-4">
+      <a
+        href="#conteudo"
+        className="sr-only rounded-full bg-ink px-5 py-3 text-small font-semibold text-on-ink focus-visible:not-sr-only focus-visible:absolute focus-visible:top-3 focus-visible:left-3 focus-visible:z-50"
+      >
+        {ui.skipToContent}
+      </a>
+      <div className="wrap flex h-full items-center justify-between gap-4">
         <Logo className="[&>span:last-child]:max-[359px]:sr-only" />
 
         <nav aria-label={ui.navAria} className="hidden lg:block">
@@ -65,7 +71,7 @@ export function Header() {
               <Menu />
             </SheetTrigger>
             <SheetContent side="right" className="w-[min(22rem,88vw)] gap-0 p-0">
-              <div className="flex h-(--spacing-header) items-center border-b border-line px-6">
+              <div className="flex h-(--nav) items-center border-b border-line px-6">
                 <SheetTitle className="font-display text-h3 font-normal">{ui.menuTitle}</SheetTitle>
               </div>
               <nav aria-label={ui.navAria} className="px-3 py-4">

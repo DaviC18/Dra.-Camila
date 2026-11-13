@@ -1,30 +1,23 @@
 import { urgencyBand } from "@/data/content";
 
-function Items() {
-  return (
-    <>
-      {urgencyBand.items.map((item) => (
-        <li key={item} className="flex shrink-0 items-center gap-6 pr-6 sm:gap-10 sm:pr-10">
-          <span className="font-display text-h3 whitespace-nowrap">{item}</span>
-          <span aria-hidden="true" className="size-1.5 rounded-full bg-on-ink-brand" />
-        </li>
-      ))}
-    </>
-  );
-}
-
-/** Faixa de urgência. Estática na Fase 3; vira marquee na Fase 4 (a segunda trilha já existe, oculta). */
+/**
+ * Faixa de urgência: camada presa à base do hero (não é uma seção própria).
+ * Estática e sem corte na Fase 3; o marquee da spec entra na Fase 4.
+ */
 export function UrgencyBand() {
   return (
-    <section aria-label={urgencyBand.ariaLabel} className="overflow-hidden bg-brand py-5 text-on-ink">
-      <div data-marquee className="flex w-max">
-        <ul className="flex">
-          <Items />
-        </ul>
-        <ul aria-hidden="true" className="flex">
-          <Items />
-        </ul>
-      </div>
-    </section>
+    <div
+      role="note"
+      aria-label={urgencyBand.ariaLabel}
+      className="absolute inset-x-0 bottom-(--bar) flex h-(--band) items-center bg-brand text-on-ink"
+    >
+      <ul data-marquee className="wrap flex flex-wrap items-center justify-center gap-x-8 gap-y-1 sm:justify-between">
+        {urgencyBand.items.map((item) => (
+          <li key={item} className="font-display text-lead whitespace-nowrap sm:text-h3">
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }

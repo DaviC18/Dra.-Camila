@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "group/button inline-flex shrink-0 items-center justify-center gap-2 rounded-full border font-sans font-semibold whitespace-nowrap select-none outline-none transition-[background-color,border-color,color,box-shadow,translate] duration-200 ease-out-quart focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-brand motion-safe:hover:-translate-y-px motion-safe:active:translate-y-px disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-5",
+  "group/button inline-flex shrink-0 items-center justify-center gap-2 rounded-full border font-sans font-semibold whitespace-nowrap select-none transition-[background-color,border-color,color,box-shadow,translate] duration-200 ease-out-quart focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-brand motion-safe:hover:-translate-y-px motion-safe:active:translate-y-px disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-5",
   {
     variants: {
       variant: {
@@ -12,7 +12,7 @@ const buttonVariants = cva(
         whatsapp:
           "border-transparent bg-whatsapp text-white shadow-sm hover:bg-whatsapp-strong hover:shadow-md",
         outline:
-          "border-brand/35 bg-surface text-brand-strong hover:border-brand hover:bg-brand-soft",
+          "border-brand/35 bg-transparent text-brand-strong hover:border-brand hover:bg-brand-soft",
         "outline-inverse":
           "border-on-ink/35 bg-transparent text-on-ink hover:border-on-ink hover:bg-on-ink/10",
         secondary: "border-transparent bg-brand-soft text-brand-strong hover:bg-[color-mix(in_oklab,var(--color-brand-soft),var(--color-brand)_10%)]",

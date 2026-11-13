@@ -2,56 +2,63 @@ import { ArrowUpRight } from "lucide-react";
 
 import { Stars } from "@/components/shared/Stars";
 import { buttonVariants } from "@/components/ui/button";
-import { contact, features, testimonials, ui } from "@/data/content";
+import { contact, features, testimonials, ui, type Testimonial } from "@/data/content";
 import { cn } from "@/lib/utils";
 
+function Quote({ item, className }: { item: Testimonial; className?: string }) {
+  return (
+    <li className={className}>
+      <figure className="rounded-lg bg-surface p-7">
+        <Stars label={testimonials.starsAria} />
+        <blockquote className="mt-5 font-display text-lead text-ink">
+          <p>“{item.text}”</p>
+        </blockquote>
+        <figcaption className="mt-6 text-small font-semibold text-ink-muted">
+          {features.testimonialNames ? item.name : testimonials.anonymousName}
+        </figcaption>
+      </figure>
+    </li>
+  );
+}
+
+/** Duas telas: título + 3 depoimentos, depois mais 3 e o link para o Google. */
 export function Testimonials() {
   const items = testimonials.items.slice(0, testimonials.featuredCount);
+  const first = items.slice(0, 3);
+  const second = items.slice(3);
+  const mobileHidden = (i: number) => (i >= testimonials.featuredCountMobile ? "max-sm:hidden" : undefined);
 
   return (
-    <section id="depoimentos" aria-labelledby="depoimentos-titulo" className="bg-accent py-section">
-      <div className="container-site">
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <h2 id="depoimentos-titulo" className="max-w-xl text-h2">
+    <section id="depoimentos" aria-labelledby="depoimentos-titulo" className="g2 bg-accent">
+      <div className="wrap">
+        <div>
+          <h2 id="depoimentos-titulo" className="max-w-2xl text-h2">
             {testimonials.title}
           </h2>
+          <ul className="mt-12 grid items-start gap-6 md:grid-cols-3">
+            {first.map((item, i) => (
+              <Quote key={item.name} item={item} className={mobileHidden(i)} />
+            ))}
+          </ul>
+        </div>
+        <div>
+          <ul className="grid items-start gap-6 md:grid-cols-3">
+            {second.map((item, i) => (
+              <Quote key={item.name} item={item} className={mobileHidden(i + first.length)} />
+            ))}
+          </ul>
           <a
             href={contact.reviewsUrl}
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`${testimonials.allReviews} ${ui.externalLink}`}
-            className={cn(buttonVariants({ variant: "link" }), "h-11 self-start px-0 md:self-auto")}
+            className={cn(buttonVariants({ variant: "outline", size: "lg" }), "mt-10 max-sm:h-auto max-sm:min-h-14 max-sm:w-full max-sm:py-3 max-sm:whitespace-normal")}
           >
             {testimonials.allReviews}
             <ArrowUpRight aria-hidden="true" />
           </a>
         </div>
       </div>
-
-      {/* Mobile: rolagem horizontal com snap. Desktop: grade em colunas. */}
-      <ul
-        className={cn(
-          "mt-12 flex items-start snap-x snap-mandatory gap-4 overflow-x-auto px-(--spacing-gutter) pb-4 [scrollbar-width:thin]",
-          "md:mx-auto md:block md:max-w-[calc(var(--container-site)+2*var(--spacing-gutter))] md:columns-2 md:gap-6 md:overflow-visible md:pb-0 lg:columns-3",
-        )}
-      >
-        {items.map((item) => (
-          <li
-            key={item.name}
-            className="w-[85%] max-w-sm shrink-0 snap-start md:mb-6 md:w-auto md:max-w-none md:break-inside-avoid"
-          >
-            <figure className="rounded-lg bg-surface p-7 shadow-sm">
-              <Stars label={testimonials.starsAria} />
-              <blockquote className="mt-5 font-display text-lead text-ink">
-                <p>“{item.text}”</p>
-              </blockquote>
-              <figcaption className="mt-6 text-small font-semibold text-ink-muted">
-                {features.testimonialNames ? item.name : testimonials.anonymousName}
-              </figcaption>
-            </figure>
-          </li>
-        ))}
-      </ul>
     </section>
   );
 }

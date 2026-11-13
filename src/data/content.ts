@@ -129,10 +129,12 @@ export const contact: ContactInfo = {
   },
   instagram: "https://www.instagram.com/dra.camilamattje/",
   instagramHandle: "@dra.camilamattje",
-  mapsUrl: "https://www.google.com/maps/place/Dra.+Camila+Mattje/@-22.540707,-44.168302,16z",
-  directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=-22.540707,-44.168302",
-  mapsEmbedUrl: "https://www.google.com/maps?q=-22.540707,-44.168302&z=16&output=embed",
-  reviewsUrl: "https://www.google.com/maps/place/Dra.+Camila+Mattje/@-22.540707,-44.168302,16z",
+  mapsUrl: "https://www.google.com/maps/search/?api=1&query=Dra.+Camila+Mattje+Barra+Mansa",
+  directionsUrl:
+    "https://www.google.com/maps/dir/?api=1&destination=Dra.+Camila+Mattje,+R.+Aldrovando+de+Oliveira,+Ano+Bom,+Barra+Mansa+-+RJ",
+  mapsEmbedUrl:
+    "https://www.google.com/maps?q=Dra.+Camila+Mattje,+R.+Aldrovando+de+Oliveira,+Ano+Bom,+Barra+Mansa+-+RJ&z=16&output=embed",
+  reviewsUrl: "https://www.google.com/maps/search/?api=1&query=Dra.+Camila+Mattje+Barra+Mansa",
   address: {
     street: "R. Aldrovando de Oliveira, 20",
     neighborhood: "Ano Bom",
@@ -215,7 +217,7 @@ export const urgencyBand = {
 } as const;
 
 export const about = {
-  title: "Cuidado sem pressa, explicado do começo ao fim",
+  title: "Dra. Camila Mattje, dentista em Barra Mansa",
   paragraphs: [
     "Sou a Dra. Camila Mattje, cirurgiã-dentista em Barra Mansa. Atendo clínica geral e urgência odontológica, inclusive à noite e nos fins de semana.",
     "Muita gente chega com medo — de agulha, de dor, de dentista. Por isso o atendimento é no seu tempo: explico cada etapa do tratamento antes de começar e só seguimos quando você estiver tranquilo.",
@@ -228,7 +230,7 @@ export const about = {
 } as const;
 
 export const services = {
-  title: "Do alívio da dor ao cuidado do sorriso",
+  title: "Serviços do consultório",
   cta: "Agendar avaliação",
   groups: [
     {
@@ -338,11 +340,13 @@ export const beforeAfter = {
 } as const;
 
 export const testimonials = {
-  title: "O que dizem os pacientes",
+  title: "Avaliações de pacientes no Google",
   anonymousName: "Paciente no Google",
   starsAria: "5 de 5 estrelas",
   /** Quantos depoimentos aparecem (spec: 4–6), na ordem da lista */
   featuredCount: 6,
+  /** No celular a lista empilha; mostra só os primeiros (cabe em duas telas) */
+  featuredCountMobile: 4,
   allReviews: "Ver todas as avaliações no Google",
   /** [PENDENTE: autorização — usar só primeiro nome] */
   items: [
@@ -395,7 +399,7 @@ export const testimonials = {
 } as const;
 
 export const howItWorks = {
-  title: "Três passos até o atendimento",
+  title: "Como funciona o atendimento",
   steps: [
     {
       title: "Chame no WhatsApp",
@@ -413,7 +417,7 @@ export const howItWorks = {
 } as const;
 
 export const faq = {
-  title: "Perguntas frequentes",
+  title: "Perguntas frequentes sobre o consultório",
   items: [
     {
       question: "Vocês atendem de madrugada e fim de semana?",
@@ -458,6 +462,7 @@ export const location = {
   callAria: "Ligar para (24) 99276-0097",
   phoneTitle: "Telefone e WhatsApp",
   mapTitle: "Mapa com a localização do consultório da Dra. Camila Mattje",
+  amenitiesTitle: "Comodidades",
   amenities: [
     {
       title: "Acessibilidade",
