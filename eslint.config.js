@@ -19,4 +19,9 @@ export default defineConfig([
       globals: globals.browser,
     },
   },
+  {
+    // shadcn gera arquivos que exportam componentes e variantes juntos
+    files: ['src/components/ui/**/*.{ts,tsx}'],
+    rules: { 'react-refresh/only-export-components': 'off' },
+  },
 ])
