@@ -87,3 +87,12 @@ Seleção de texto, cursor de digitação, anel de foco (2px `brand`) e barra de
   - A Source Serif com `opsz` tem 122KB.
   - Testei a variante `wght` (51KB): o LCP só caiu de 3,2s para 2,9s e o título perdeu o corte de display. Mantive a `opsz`.
 - **URL do site:** `VITE_SITE_URL` (`.env`) alimenta o canonical, o Open Graph e o JSON-LD. `robots.txt` e `sitemap.xml` usam o domínio provisório [PENDENTE].
+
+## Responsividade
+- **Altura das seções:** vem do conteúdo, com o mesmo espaçamento vertical (`--padt`/`--padb`, de 72 a 120px). O ritmo fixo de 1–2 telas por seção, que vinha do gate da taste-skill, criava vazios de meia tela ou mais no celular, no tablet e em 1920×1080.
+- **Hero:** ocupa a primeira tela. O grid estica (`flex-1`), então a foto da recepção preenche a altura.
+- **A partir de 768px (tablet):**
+  - Hero e Sobre ficam em 2 colunas (7/5), e a foto aparece no hero.
+  - Depoimentos usam colunas tipo masonry: 2 no tablet e 3 no desktop.
+  - O rodapé fica em 2 colunas.
+- **Abaixo de 768px:** o hero não tem foto (LCP), e a barra de ação fixa é compensada com `padding-bottom` no `body`.

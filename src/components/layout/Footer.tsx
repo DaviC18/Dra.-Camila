@@ -14,8 +14,8 @@ export function Footer() {
   useReveal(root);
 
   return (
-    <footer ref={root} id="contato" aria-labelledby="contato-titulo" className="closing bg-brand-soft max-sm:[--hm:2]">
-      <div className="wrap justify-between gap-16">
+    <footer ref={root} id="contato" aria-labelledby="contato-titulo" className="closing bg-brand-soft">
+      <div className="wrap gap-16 lg:gap-20">
         <div>
           <h2 id="contato-titulo" data-reveal className="max-w-3xl text-h2">
             {finalCta.title}
@@ -51,7 +51,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="grid gap-8 text-small text-ink-muted md:grid-cols-[1.4fr_1fr_1fr_auto] md:items-start">
+        <div className="grid gap-8 text-small text-ink-muted sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_auto] lg:items-start">
           <div className="space-y-3">
             <Logo />
             <p>
@@ -99,7 +99,7 @@ export function Footer() {
             </ul>
           </nav>
 
-          <p className="text-label md:col-span-4" suppressHydrationWarning>
+          <p className="text-label sm:col-span-2 lg:col-span-4" suppressHydrationWarning>
             © {year} {identity.name}. {footer.rights} · {footer.credit}
           </p>
         </div>

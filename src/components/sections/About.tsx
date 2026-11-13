@@ -5,10 +5,10 @@ import { about, identity, images } from "@/data/content";
 
 export function About() {
   return (
-    <section id="sobre" aria-labelledby="sobre-titulo" className="max-sm:[--hm:2]">
+    <section id="sobre" aria-labelledby="sobre-titulo">
       <div className="wrap">
-        <div className="grid h-full content-start items-start gap-12 lg:grid-cols-12 lg:content-stretch lg:gap-x-6">
-          <div data-reveal className="lg:col-span-7">
+        <div className="grid gap-12 md:grid-cols-12 md:gap-x-6">
+          <div data-reveal className="md:col-span-7">
             <h2 id="sobre-titulo" className="max-w-xl text-h2">
               {about.title}
             </h2>
@@ -38,8 +38,8 @@ export function About() {
           <Photo
             image={images.doctor}
             reveal
-            sizes="(min-width: 1024px) 40vw, 100vw"
-            className="aspect-4/5 w-full lg:col-span-5 lg:aspect-auto lg:h-full"
+            sizes="(min-width: 768px) 40vw, 100vw"
+            className="aspect-4/5 w-full md:col-span-5 md:aspect-auto md:h-full md:min-h-96"
             imgClassName="object-[50%_20%]"
           />
         </div>

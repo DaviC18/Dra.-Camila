@@ -69,8 +69,8 @@ export function Hero() {
   return (
     <section ref={root} id="inicio" className="hero [--band:5.5rem] max-sm:[--band:6.75rem]">
       <div className="wrap">
-        <div className="hero-text grid h-full items-start gap-10 lg:grid-cols-12 lg:gap-x-6">
-          <div className="max-w-2xl lg:col-span-7">
+        <div className="hero-text grid flex-1 items-start gap-10 md:grid-cols-12 md:gap-x-6 md:items-stretch">
+          <div className="max-w-2xl md:col-span-7 md:self-center lg:self-start">
             <h1 data-hero-title className="text-display text-ink">
               {hero.title}
             </h1>
@@ -113,9 +113,9 @@ export function Hero() {
 
           <Photo
             image={images.reception}
-            sizes="(min-width: 1024px) 40vw, 0px"
+            sizes="(min-width: 768px) 40vw, 0px"
             priority
-            className="hidden h-full w-full lg:col-span-5 lg:block"
+            className="hidden h-full min-h-80 w-full md:col-span-5 md:block"
             imgClassName="object-[50%_35%]"
           />
         </div>

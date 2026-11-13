@@ -165,14 +165,14 @@
 }
 
 /*
- * Ritmo de página (taste-skill, layout-v4): cada seção tem exatamente 1 ou 2 telas (--h),
- * o h2 primeiro, --padt abaixo do topo. Um único .wrap por seção. No celular a seção tem
- * pelo menos suas telas (--hm) e cresce com o conteúdo.
+ * Ritmo de página: um único .wrap por seção, o h2 primeiro. A altura vem do conteúdo,
+ * com o mesmo espaçamento vertical em todas as seções (sem vazios em telas altas ou baixas).
+ * O hero ocupa a primeira tela inteira.
  */
 :root {
   --nav: var(--spacing-header);
-  --padt: 120px;
-  --padb: 72px;
+  --padt: clamp(4.5rem, 3rem + 4vw, 7.5rem);
+  --padb: clamp(4.5rem, 3rem + 4vw, 7.5rem);
   --hgap: 48px;
   --hpadb: 64px;
   --bar: 0px;
@@ -182,7 +182,7 @@
   :root { --gut: 48px; }
 }
 @media (max-width: 639px) {
-  :root { --nav: 4rem; --padt: 96px; --padb: 48px; --hgap: 40px; --hpadb: 24px; --gut: 24px; --bar: 76px; }
+  :root { --nav: 4rem; --hgap: 32px; --hpadb: 24px; --gut: 20px; --bar: 76px; }
 }
 
 .wrap {
@@ -193,61 +193,32 @@
 main > section,
 footer.closing {
   position: relative;
-  box-sizing: border-box;
-  height: calc(var(--h, 1) * 100svh);
-  padding: var(--padt) 0 calc(var(--padb) + var(--bar));
+  padding: var(--padt) 0 var(--padb);
 }
 main > section > .wrap,
 footer.closing > .wrap {
   position: relative;
   z-index: 1;
-  height: 100%;
   display: flex;
   flex-direction: column;
 }
-main > section > .wrap > .fill { flex: 1 1 0; min-height: 0; }
 
-/* duas telas em dois grupos: o segundo começa --padt abaixo do topo da segunda tela */
-main > section.g2 { --h: 2; }
-main > section.g2 > .wrap {
-  display: grid;
-  grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
-  row-gap: calc(var(--padt) + var(--padb) + var(--bar));
-}
-main > section.g2 > .wrap > * { min-height: 0; align-self: start; }
+/* duas partes de uma seção (ex.: serviços, depoimentos): só um espaço entre elas */
+main > section.g2 > .wrap { row-gap: clamp(3rem, 2rem + 3vw, 5rem); }
 
-/* o hero: exatamente a primeira tela, com o header fixo por cima */
+/* a barra de ação fixa do celular não cobre o fim da página */
+body { padding-bottom: var(--bar); }
+
+/* o hero: a primeira tela inteira, com o header fixo por cima e a faixa presa na base */
 main > section.hero {
-  height: 100svh;
-  padding: calc(var(--nav) + var(--hgap)) 0 calc(var(--hpadb) + var(--bar) + var(--band, 0px));
+  min-height: 100svh;
+  padding: calc(var(--nav) + var(--hgap)) 0 calc(var(--hpadb) + var(--band, 0px) + var(--bar));
+  display: flex;
+  flex-direction: column;
 }
-
-@media (min-width: 640px) and (max-width: 1279px) {
-  main > section:not(.hero),
-  footer.closing {
-    height: auto;
-    min-height: calc(var(--h, 1) * 100svh);
-    display: flex;
-    flex-direction: column;
-  }
-  main > section:not(.hero) > .wrap,
-  footer.closing > .wrap { flex: 1 0 auto; height: auto; }
-}
-
-@media (max-width: 639px) {
-  main > section:not(.hero),
-  footer.closing {
-    height: auto;
-    min-height: calc(var(--hm, var(--h, 1)) * 100lvh);
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: 1fr;
-  }
-  main > section:not(.hero) > .wrap,
-  footer.closing > .wrap { height: auto; }
-  main > section.g2 > .wrap { display: flex; row-gap: 2rem; }
-  main > section.g2m { --hm: 2; }
-  main > section.hero { height: auto; min-height: 100svh; }
+main > section.hero > .wrap { flex: 1 0 auto; }
+@media (max-height: 640px) and (min-width: 1024px) {
+  main > section.hero { min-height: 0; }
 }
 
 /* Entrada do hero (Fase 4): só desktop com movimento. A classe .js vem de um script no <head>;

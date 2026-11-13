@@ -19,9 +19,9 @@ function Detail({ icon: Icon, title, children }: { icon: LucideIcon; title: stri
 
 export function Location() {
   return (
-    <section id="localizacao" aria-labelledby="localizacao-titulo" className="max-sm:[--hm:2]">
+    <section id="localizacao" aria-labelledby="localizacao-titulo">
       <div className="wrap">
-        <div className="grid h-full items-start gap-10 lg:grid-cols-12 lg:gap-x-6">
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-x-6">
           <div data-reveal className="lg:col-span-7">
             <h2 id="localizacao-titulo" className="text-h2">
               {location.title}
@@ -72,13 +72,13 @@ export function Location() {
             </div>
           </div>
 
-          <div data-reveal className="h-full min-h-72 overflow-hidden rounded-xl bg-brand-soft ring-1 ring-line lg:col-span-5">
+          <div data-reveal className="h-80 overflow-hidden md:h-96 lg:h-full lg:min-h-96 rounded-xl bg-brand-soft ring-1 ring-line lg:col-span-5">
             <iframe
               src={contact.mapsEmbedUrl}
               title={location.mapTitle}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="block size-full min-h-72 border-0 focus-visible:outline-offset-[-3px]"
+              className="block size-full border-0 focus-visible:outline-offset-[-3px]"
             />
           </div>
         </div>

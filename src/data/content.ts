@@ -241,8 +241,6 @@ export const hero = {
     "Clínica geral e urgência odontológica 24 horas em Barra Mansa, com o cuidado de quem entende o seu medo.",
   ctaPrimary: "Estou com dor agora",
   ctaSecondary: "Agendar avaliação",
-  /** [PENDENTE: foto da doutora em alta] */
-  photoAlt: "Dra. Camila Mattje, cirurgiã-dentista, de jaleco branco",
 } as const;
 
 export const urgencyBand = {
@@ -259,8 +257,6 @@ export const about = {
   ],
   highlights: identity.highlights,
   cro: identity.cro,
-  /** [PENDENTE: foto da doutora / consultório] */
-  photoAlt: "Dra. Camila Mattje no consultório",
 } as const;
 
 export const services = {
@@ -456,7 +452,6 @@ export const faq = {
     {
       question: "Vocês atendem de madrugada e fim de semana?",
       answer: "Sim, para urgências o atendimento é 24 horas. Chame no WhatsApp.",
-      pending: true, // [confirmar]
     },
     {
       question: "Atende crianças?",
